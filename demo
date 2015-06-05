@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<html>
+	<head>
+		<style>
+			.scrollTbodyDiv { overflow-y: scroll; }
+			.topHeaderDiv { overflow:hidden; width:auto !important; }
+			td { white-space:nowrap; padding-top:1px; }
+			.scrollableHeaderTable { width:999px; height:1px; }
+			label { display:inline-block; margin-bottom:25px; font-weight:bold; }
+			th { white-space:nowrap; padding:0; }
+
+			/* Cosmetic styling: */
+			* { font-family:calibri, verdana; }
+			.scrollableHeaderTable thead { border:1px solid black; }
+			th, td { border:1px inset silver; }
+			th { background:Silver !important; border-bottom:none; vertical-align:bottom;}
+			.scrollTbodyDiv { width: 552px; border:1px solid black; border-left:none; }
+		</style>
+		<script type='text/javascript' src='https://ajax.googleapis.com/ajax/libs/jquery/1/jquery.js'></script>
+		<script type='text/javascript' src='ScrollTable.js'></script>
+		<script type='text/javascript'>
+		function test() {
+			var startTime = new Date();
+			
+			//Calls main function to make table scrollable:
+			$('#tableId').makeTableScrollable($('#divHeight').val(), 2);
+
+			var endTime = new Date();
+			$('#duration').html(endTime.getMilliseconds() - startTime.getMilliseconds() + "ms elapsed");
+		}
+	  </script>
+	</head>
+	<body>
+		<label>Div Height:</label><input type='text' id='divHeight' size='2' value='200'/> px
+		<input type='button' onclick="test();" value='Make Scrollable' autofocus />
+		<div id='duration'></div>
+
+		<br />
+		<div class='scrollTbodyDiv'>
+			<TABLE id='tableId' cellspacing='0' cellpadding='0'>
+				<THEAD>
+					<TR><TH>Title</TH><TH>Year</TH><TH>Score</TH><TH>Genre</TH><TH style='200px'>Director</TH></TR>
+				</THEAD>
+				<TBODY>
+					<TR><TD>Sharknado</TD><TD>2013</TD><TD>3.6</TD><TD>Horror/Sci-Fi</TD><TD>Anthony C Ferrante</TD></TR>
+					<TR><TD>Watchmen</TD><TD>2009</TD><TD>7.6</TD><TD>Action/Drama/Mytery</TD><TD>Zack Snyder</TD></TR>
+					<TR><TD>Shawshank Redemption</TD><TD>1994</TD><TD>9.3</TD><TD>Drama</TD><TD>Frank Darabont</TD></TR>
+					<TR><TD>Manos: The Hands of Fate</TD><TD>1966</TD><TD>1.9</TD><TD>Horror</TD><TD>Harold P. Warren</TD></TR>
+					<TR><TD>Robocop</TD><TD>1987</TD><TD>7.5</TD><TD>Action/Crime/Sci-Fi</TD><TD>Paul Verhoeven</TD></TR>
+					<TR><TD>Ghostbusters</TD><TD>1984</TD><TD>7.8</TD><TD>Comedy/Fantasy</TD><TD>Ivan Reitman</TD></TR>
+					<TR><TD>Rear Window</TD><TD>1954</TD><TD>8.6</TD><TD>Mystery/Thriller</TD><TD>Alfred Hitchcock</TD></TR>
+					<TR><TD>Metropolis</TD><TD>1927</TD><TD>8.4</TD><TD>Drama/Sci-Fi</TD><TD>Fritz Lang</TD></TR>
+					<TR><TD>Road House</TD><TD>1989</TD><TD>6.1</TD><TD>Action/Thriller</TD><TD>Roady Herrington</TD></TR>
+					<TR><TD>Fight Club</TD><TD>1998</TD><TD>8.9</TD><TD>Drama</TD><TD>David Fincher</TD></TR>
+					<TR><TD>The Conjuring</TD><TD>2013</TD><TD>7.8</TD><TD>Horror/Thriller</TD><TD>James Wan</TD></TR>
+					<TR><TD>Aliens</TD><TD>1986</TD><TD>8.5</TD><TD>Action/Adventure/Sci-Fi</TD><TD>Ridley Scott</TD></TR>
+					<TR><TD>The Dark Knight</TD><TD>2008</TD><TD>9.0</TD><TD>Action/Crime/Drama</TD><TD>Christopher Nolan</TD></TR>
+				</TBODY>
+			</TABLE>
+		</div>
+	</body>
+</html>
